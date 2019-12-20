@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content%}
+<style>
+    
+</style>
+<body>
+    
+    {% for z_item in zimon.all %}
+        <div class="container">
+            <h1 style="display:inline">지몬 #{{z_item.id}} </h1>
+            <h1 style="display: inline;">{{z_item.title}}</h1>
+            <p>{{z_item.pub_date}}</p>
+            <p style="font-size: 25px;">{{z_item.summary}}<a href="{% url 'z_detail' z_item.id %}" style="color: #FAFA96">...more</a></p>
+            <!-- a태그에서 zimon.id로 했다가 reverse오류남 잘생각하고 하쟈ㅁㅅㅁ -->
+        </div>
+    {% endfor %}
+    {% for m_item in mum.all %}
+        <div class="container">
+            <h1 style="display:inline">멈멈 #{{m_item.id}} </h1>
+            <h1 style="display: inline;">{{m_item.title}}</h1>
+            <p>{{m_item.pub_date}}</p>
+            <p style="font-size: 25px;">{{m_item.summary}}<a href="{% url 'm_detail' m_item.id %}" style="color:#FAFA96">...more</a></p>
+        </div>
+    {% endfor %}
+    
+</body>
+</html>
+{% endblock %}

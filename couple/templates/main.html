@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Diary</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css'%}">
+    <script href="{% static 'main.js' %}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<style>
+    html, body{ 
+      background: url("{% static 'main.jpg' %}") no-repeat center center fixed;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+          
+      }
+#mainFont{
+  font-family: 'Special Elite', cursive;
+  color: white;
+  font-size: 60px;
+  text-align: center;
+  margin-top: 200px;
+  
+}
+.snip1535 {
+background-color: white;
+border: none;
+color: black;
+cursor: pointer;
+display: inline-block;
+font-family: 'Special Elite', cursive;
+font-size: 1em;
+font-size: 22px;
+line-height: 1em;
+outline: none;
+padding: 12px 40px 10px;
+position: relative;
+text-transform: uppercase;
+font-weight: 700;
+margin-left: 670px;
+}
+.snip1535:before,
+.snip1535:after {
+border-color: transparent;
+-webkit-transition: all 0.25s;
+transition: all 0.25s;
+border-style: solid;
+border-width: 0;
+content: "";
+height: 24px;
+position: absolute;
+width: 24px;
+}
+.snip1535:before {
+border-color: #FAFA96;
+border-right-width: 2px;
+border-top-width: 2px;
+right: -5px;
+top: -5px;
+}
+.snip1535:after {
+border-bottom-width: 2px;
+border-color: #FAFA96;
+border-left-width: 2px;
+bottom: -5px;
+left: -5px;
+}
+.snip1535:hover,
+.snip1535.hover {
+background-color: rgb(156, 138, 138);
+}
+.snip1535:hover:before,
+.snip1535.hover:before,
+.snip1535:hover:after,
+.snip1535.hover:after {
+height: 100%;
+width: 100%;
+
+}
+#box{
+    position: fixed;    
+    width: 550px;
+    height:50px;
+    color:white;
+    font-size: 30px;
+    border-style: solid;
+    border-color: black;
+    background-color: black;
+    text-align: center;
+    margin-top:50px;
+    margin-left:500px;
+    animation-name: intro;
+    animation-duration: 5s;
+    
+}
+
+#box2{
+    width: 550px;
+    height:50px;
+    color:white;
+    font-size: 30px;
+    border-style: solid;
+    border-color: black;
+    background-color: black;
+    text-align: center;
+    margin-top:50px;
+    margin-left:500px;
+    animation-name: intro2;
+    animation-duration: 5s;
+    
+}
+
+@keyframes intro{
+    0%{
+        opacity: 1.0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes intro2{
+    0%{
+        opacity: 0;
+    }
+    40%{
+        opacity: 0;
+    }
+    100%{
+        opacity:1.0;
+    }
+}
+</style>
+<body>
+    
+    <p id="mainFont">Zimon & Mum s' <br><span style="font-size:120px;">Diary</span></p>
+    <br>
+    <button class="snip1535" onclick="location.href='http://127.0.0.1:8000/couple/home/' ">START</button>
+    <div id="box">
+        welcome to our diary
+    </div>    
+    <div id="box2">
+        We've been in love for <span style="color: red; font-size:40px;" id="day"></span> days
+    </div>
+    {% for i in range %}
+        <span class="star" style="position:absolute; z-index:-500; ">
+            <img src="{% static 'star.jpg' %}" width="30px" height="30px">
+        </span>
+    {% endfor %}
+    
+</body>
+<script>
+    var countUpDate = new Date("Dec 26,2018 12:00:00").getTime();
+    var x = setInterval(function(){
+        var now = new Date().getTime();
+        var distance = now-countUpDate;
+        var d = Math.floor(distance/(1000 * 60*60*24));
+        document.getElementById('day').innerHTML = d+1;
+    });
+
+    function randomStar(){
+        var starImg = document.getElementsByClassName("star");
+        
+
+        for(var i=0; i< starImg.length; i++){
+            var x = Math.floor(Math.random()*400)+50;
+            var y = Math.floor(Math.random()*1200)+100;
+            starImg[i].style.top = x + "px";
+            starImg[i].style.left = y + "px";
+            
+        }
+    }
+    randomStar();
+
+</script>
+</html>

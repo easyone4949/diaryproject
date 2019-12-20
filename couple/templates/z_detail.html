@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+    <div class="container">
+        <h1 style="display:inline">#{{zimon_detail.id}} </h1>
+        <h1 style="display: inline;">{{zimon_detail.title}}</h1>
+        <p>{{zimon_detail.pub_date}}</p>
+        <p style="font-size: 25px;">{{zimon_detail.body}}</p>
+    </div>
+</body>
+{% endblock %}

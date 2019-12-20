@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+    <div class="container">
+        <h1 style="display:inline">#{{mum_detail.id}} </h1>
+        <h1 style="display: inline;">{{mum_detail.title}}</h1>
+        <p>{{mum_detail.pub_date}}</p>
+        <p style="font-size: 25px;">{{mum_detail.body}}</p>
+    </div>
+</body>
+{% endblock %}
